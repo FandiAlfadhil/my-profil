@@ -1188,3 +1188,7 @@ strong {
 b {
   color: red;
 }
+
+.mb-0 b {
+  color:black;
+}
