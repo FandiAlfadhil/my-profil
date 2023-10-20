@@ -20,7 +20,7 @@ https://templatemo.com/tm-578-first-portfolio
   --border-color:                 #e9eaeb;
   --featured-border-color:        #727aab;
 
-  --body-font-family:             'Zen Old Mincho', "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+  --body-font-family:             'DM Sans', sans-serif;
 
   --h1-font-size:                 62px;
   --h2-font-size:                 48px;
@@ -66,18 +66,18 @@ h4,
 h5,
 h6 {
   font-weight: var(--font-weight-bold);
-  letter-spacing: 1px;
+  letter-spacing: -1px;
 }
 
 h1 {
   font-size: var(--h1-font-size);
-  letter-spacing: 1px;
+  letter-spacing: -3px;
 }
 
 h2 {
   font-size: var(--h2-font-size);
   color: var(--secondary-color);
-  letter-spacing: 1px;
+  letter-spacing: -3px;
 }
 
 h3 {
@@ -468,7 +468,7 @@ strong {
   HERO              
 -----------------------------------------*/
 .hero {
-  background: #e1b30a;
+  background: var(--secondary-color);
   position: relative;
   overflow: hidden;
   padding-top: 330px;
@@ -1185,10 +1185,3 @@ strong {
   }
 }
 
-b {
-  color: red;
-}
-
-.mb-0 b {
-  color:black;
-}
