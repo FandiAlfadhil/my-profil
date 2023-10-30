@@ -99,7 +99,7 @@ body,div,dl,dt,dd,ul,ol,li,p,h1,h2,h3,h4,h5,h6,th,td,pre,code,blockquote,form,fi
 body{
 	-webkit-text-size-adjust: 100%;
 	background-color: #fff;
-	background-image: url(../img/common/bg/noice.jpg);
+	background-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/bg/noice.jpg);
 	background-repeat: repeat;
 	background-position: center;
 	color: rgb(var(--color-blue));
@@ -178,7 +178,7 @@ a:hover{ text-decoration: none; }
 }
 #canvasBg{
 	background-color: #fff;
-	background-image: url(../img/common/bg/noice.jpg);
+	background-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/bg/noice.jpg);
 	background-repeat: repeat;
 	background-position: center;
 	width: 100%;
@@ -542,12 +542,12 @@ a:hover{ text-decoration: none; }
 }
 
 .galleryLists__pager.is-prev > a:before {
-    -webkit-mask-image: url(../img/common/arrow_prev.svg);
-    mask-image: url(../img/common/arrow_prev.svg);
+    -webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/arrow_prev.svg);
+    mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/arrow_prev.svg);
 }
 .galleryLists__pager.is-next > a:before {
-    -webkit-mask-image: url(../img/common/arrow_next.svg);
-    mask-image: url(../img/common/arrow_next.svg);
+    -webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/arrow_next.svg);
+    mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/arrow_next.svg);
 }
 
 .galleryImgModalContents {
@@ -835,8 +835,8 @@ a:hover{ text-decoration: none; }
 	content: "";
     background-color: #fff;
     display: block;
-	-webkit-mask-image: url(../img/common/icon/icon_tw.svg);
-    mask-image: url(../img/common/icon/icon_tw.svg);
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+    mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
@@ -942,16 +942,16 @@ a:hover{ text-decoration: none; }
 
 /* 各SNS */
 .header__shareLists__item.is-twitter > a:before {
-	-webkit-mask-image: url(../img/common/icon/icon_tw.svg);
-	mask-image: url(../img/common/icon/icon_tw.svg);
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
 }
 .header__shareLists__item.is-facebook > a:before {
-	-webkit-mask-image: url(../img/common/icon/icon_fb.svg);
-	mask-image: url(../img/common/icon/icon_fb.svg);
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fb.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fb.svg);
 }
 .header__shareLists__item.is-line > a:before {
-	-webkit-mask-image: url(../img/common/icon/icon_line.svg);
-	mask-image: url(../img/common/icon/icon_line.svg);
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_line.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_line.svg);
 }
 
 /**
@@ -1137,7 +1137,7 @@ a:hover{ text-decoration: none; }
 }
 @media screen and (max-width:767px){
 	.footer {
-		background-image: url(../img/common/footer/footer_visual_sp.png);
+		background-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/footer/footer_visual_sp.png);
 		padding-top: 24vw;
 		padding-bottom: 74.66666vw;
 	}
@@ -1254,16 +1254,16 @@ a:hover{ text-decoration: none; }
 
 /* 各SNS */
 .footer__shareLists__item.is-twitter > a:before {
-	-webkit-mask-image: url(../img/common/icon/icon_tw.svg);
-	mask-image: url(../img/common/icon/icon_tw.svg);
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
 }
 .footer__shareLists__item.is-facebook > a:before {
-	-webkit-mask-image: url(../img/common/icon/icon_fb.svg);
-	mask-image: url(../img/common/icon/icon_fb.svg);
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fb.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fb.svg);
 }
 .footer__shareLists__item.is-line > a:before {
-	-webkit-mask-image: url(../img/common/icon/icon_line.svg);
-	mask-image: url(../img/common/icon/icon_line.svg);
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_line.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_line.svg);
 }
 
 /**
@@ -1313,8 +1313,8 @@ a:hover{ text-decoration: none; }
 	content: "";
 	background-color: rgb(var(--color-blue));
 	display: block;
-	-webkit-mask: url(../img/common/icon/icon_arrow_top.svg) no-repeat 0 0 / 100%;
-	mask: url(../img/common/icon/icon_arrow_top.svg) no-repeat 0 0 / 100%;
+	-webkit-mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_arrow_top.svg) no-repeat 0 0 / 100%;
+	mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_arrow_top.svg) no-repeat 0 0 / 100%;
 	width: min(8.33333vw,100px);
 	height: min(3.33333vw,40px);
 	transition: transform .4s ease;
@@ -1435,7 +1435,7 @@ a:hover{ text-decoration: none; }
 }
 .contTitle1:before {
 	content: "";
-	background: url(../img/common/deco/deco_title_b.png) no-repeat 0 0 / 100%;
+	background: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/deco/deco_title_b.png) no-repeat 0 0 / 100%;
 	width: min(25.08333vw,301px);
 	height: min(22.41666vw,269px);
 	margin: auto;
@@ -1511,8 +1511,8 @@ a:hover{ text-decoration: none; }
 .contTitle2:after {
 	content: "";
 	background-color: rgb(var(--color-gold));
-	-webkit-mask: url(../img/common/deco/deco_title_u.svg) no-repeat 0 0 / contain;
-	mask: url(../img/common/deco/deco_title_u.svg) no-repeat 0 0 / contain;
+	-webkit-mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/deco/deco_title_u.svg) no-repeat 0 0 / contain;
+	mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/deco/deco_title_u.svg) no-repeat 0 0 / contain;
 	display: block;
 	width: min(33.33333vw,400px);
 	height: min(1.91666vw,23px);
@@ -1895,16 +1895,16 @@ a:hover{ text-decoration: none; }
 .blankLinkLists__text:after {
 	content: "";
 	background-color: rgb(var(--color-gold));
-	-webkit-mask: url(../img/common/icon/icon_blank.svg) no-repeat center / contain;
-	mask: url(../img/common/icon/icon_blank.svg) no-repeat center / contain;
+	-webkit-mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_blank.svg) no-repeat center / contain;
+	mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_blank.svg) no-repeat center / contain;
 	display: flex;
 	width: min(1.16666vw, 14px);
 	height: min(1.16666vw, 14px);
 	margin-left: 6px;
 }
 .blankLinkLists__text.is-twitter:after {
-	-webkit-mask-image: url(../img/common/icon/icon_tw.svg);
-	mask-image: url(../img/common/icon/icon_tw.svg);
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
 	width: min(15vw, 18px);
 	height: min(15vw, 18px);
 }

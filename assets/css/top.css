@@ -484,8 +484,8 @@
 }
 @media screen and (min-width:768px){
 	.intro__inner {
-		-webkit-mask-image: url(../img/top/intro/mask_top.png), url(../img/top/intro/mask_bottom.png), url(../img/top/intro/s.jpg);
-		mask-image: url(../img/top/intro/mask_top.png), url(../img/top/intro/mask_bottom.png), url(../img/top/intro/s.jpg);
+		-webkit-mask-image: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/top/intro/mask_top.png), url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/top/intro/mask_bottom.png), url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/top/intro/s.jpg);
+		mask-image: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/top/intro/mask_top.png), url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/top/intro/mask_bottom.png), url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/top/intro/s.jpg);
 		-webkit-mask-repeat: repeat-x, repeat-x, repeat;
 		mask-repeat: repeat-x, repeat-x, repeat;
 		-webkit-mask-position: center top, center bottom, center;
@@ -610,7 +610,7 @@
 
 .introMovie:before {
 	content: "";
-	background: url(../img/common/icon/icon_play_bg.png) no-repeat 0 0 / 100%;
+	background: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_play_bg.png) no-repeat 0 0 / 100%;
 	width: 100%;
 	height: 100%;
 	margin: auto;
@@ -624,8 +624,8 @@
 .introMovie:after {
 	content: "";
 	background-color: rgb(var(--color-gold));
-	-webkit-mask: url(../img/common/icon/icon_play.svg) no-repeat 0 0 / 100%;
-	mask: url(../img/common/icon/icon_play.svg) no-repeat 0 0 / 100%;
+	-webkit-mask: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_play.svg) no-repeat 0 0 / 100%;
+	mask: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_play.svg) no-repeat 0 0 / 100%;
 	width: min(2.66666vw,32px);
 	height: min(3.25vw,39px);
 	margin: auto;
@@ -662,7 +662,7 @@
 	top: 0;
 }
 .introBg {
-	background: url(../img/common/bg/dot_ptn.png) repeat;
+	background: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/bg/dot_ptn.png) repeat;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -697,7 +697,7 @@
 	z-index: 2;
 }
 .introBg__dot {
-	background: url(../img/common/bg/dot_ptn.png) repeat;
+	background: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/bg/dot_ptn.png) repeat;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -893,8 +893,8 @@
 	mask-size: 100%;
 	width: min(2.16666vw,26px);
 	height: min(2.08333vw,25px);
-	-webkit-mask-image: url(../img/common/icon/icon_fukidashi.svg);
-	mask-image: url(../img/common/icon/icon_fukidashi.svg);
+	-webkit-mask-image: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fukidashi.svg);
+	mask-image: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fukidashi.svg);
 	margin-left: 8px;
 }
 @media screen and (max-width:767px){
@@ -1132,8 +1132,8 @@
 .movieLists__icon:before {
 	content: "";
 	background-color: #fff;
-	-webkit-mask: url(../img/common/icon/icon_play_bg.png) no-repeat 0 0 / 100%;
-	mask: url(../img/common/icon/icon_play_bg.png) no-repeat 0 0 / 100%;
+	-webkit-mask: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_play_bg.png) no-repeat 0 0 / 100%;
+	mask: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_play_bg.png) no-repeat 0 0 / 100%;
 	width: 100%;
 	height: 100%;
 	margin: auto;
@@ -1147,8 +1147,8 @@
 .movieLists__icon:after {
 	content: "";
 	background-color: #fff;
-	-webkit-mask: url(../img/common/icon/icon_play.svg) no-repeat 0 0 / 100%;
-	mask: url(../img/common/icon/icon_play.svg) no-repeat 0 0 / 100%;
+	-webkit-mask: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_play.svg) no-repeat 0 0 / 100%;
+	mask: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_play.svg) no-repeat 0 0 / 100%;
 	width: min(2.66666vw,32px);
 	height: min(3.25vw,39px);
 	margin: auto;
@@ -1340,7 +1340,7 @@
  * Info modal
 -------------------------------------------------*/
 .infoModal__text {
-	background: url(../img/top/top/top_onair.png) no-repeat 0 0 / 100%;
+	background: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/top/top/top_onair.png) no-repeat 0 0 / 100%;
 	width: 623px;
 	height: 298px;
 }

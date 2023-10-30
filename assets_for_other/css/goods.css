@@ -72,13 +72,13 @@
 	transition: opacity .3s ease;
 }
 .goodsCatList__link span:before{
-	background: url(../img/common/deco/deco_dia.svg) no-repeat center / contain;
+	background: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/deco/deco_dia.svg) no-repeat center / contain;
 }
 .goodsCatList__link span:after{
 	opacity: 0;
 	background-color: #fff;
-	-webkit-mask: url(../img/common/deco/deco_dia.svg) no-repeat center / contain;
-	mask: url(../img/common/deco/deco_dia.svg) no-repeat center / contain;
+	-webkit-mask: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/deco/deco_dia.svg) no-repeat center / contain;
+	mask: url((https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/deco/deco_dia.svg) no-repeat center / contain;
 }
 
 
