@@ -1,0 +1,2066 @@
+@charset "utf-8";
+/*-----------------------------------------------
+ * common.css
+ * レスポンシブは基本スタイルを引き継ぐ（PCファースト）
+ * @media screen and (max-width:767px)
+-------------------------------------------------*/
+/*-----------------------------------------------
+ * Reset, root
+ * Bace
+ * Modal
+ * Header
+ * Footer
+ * Parts
+ * Subpage
+-------------------------------------------------*/
+/*-----------------------------------------------
+ * Reset, root
+-------------------------------------------------*/
+body,div,dl,dt,dd,ul,ol,li,p,h1,h2,h3,h4,h5,h6,th,td,pre,code,blockquote,form,fieldset,legend,input,textarea,figcaption,figure{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{font-size:100%}legend{color:#FFF}hr{display:none}img{vertical-align:bottom}select,input,button,textarea{font-size:99%}table{font-size:inherit;font:100%;border-collapse:collapse;border-spacing:0}pre,code,kbd,samp,tt{font-family:monospace;font-size:108%;line-height:100%}.hd{display:block;width:0;height:0;overflow:hidden}.cf:before,.cf:after{content:"";display:table}.cf:after{clear:both}.cf{zoom:1}article,aside,details,figcaption,figure,footer,header,hgroup,hr,menu,nav,section,main{display:block}*{margin:0;padding:0;box-sizing:border-box;max-height:999999px;outline:none;}*:focus{outline: none;}button{background-color:transparent;border:none;cursor:pointer;outline:none;padding:0;}
+
+:root {
+	--common-min-width: 1200px;
+	--common-min-height: 640px;
+
+	/* font */
+	--main-font-size: 16px;
+	--main-font-family: 'Zen Old Mincho', "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+
+	/* 共通幅 */
+	--common-in-width: 84%;
+	--common-in-maxwidth: 1400px;
+	--header-height: min(8.33333vw,100px);
+
+	/* color */
+	--color-blue: 1,173,175;  /* #01adaf */
+	--color-green: 4,170,114; /* #04aa72 */
+	--color-gold: 220,205,133;/* #dccd85 */
+
+	/* easing */
+	--easing-outquart: cubic-bezier(0.25, 1, 0.5, 1);
+
+	/* フォントサイズ */
+	--fontsize-12: min(1vw, 12px);
+	--fontsize-14: min(1.16666vw, 14px);
+	--fontsize-16: min(1.33333vw, 16px);
+	--fontsize-18: min(1.5vw, 18px);
+	--fontsize-20: min(1.66666vw, 20px);
+	--fontsize-22: min(1.83333vw, 22px);
+	--fontsize-24: min(2vw, 24px);
+	--fontsize-26: min(2.16666vw, 26px);
+}
+@media screen and (max-width:767px){
+	:root {
+		--common-min-width: 100%;
+		--common-min-height: auto;
+		--main-font-size: 12px;
+
+		/* 共通横幅 */
+		--common-in-width: 89.33333vw;
+		--common-in-maxwidth: 100%;
+		--header-height: 13.33333vw;
+
+		/* フォントサイズ */
+		--fontsize-12: 2.66666vw;
+		--fontsize-14: 2.933333vw;
+		--fontsize-16: 3.2vw;
+		--fontsize-18: 3.46666vw;
+		--fontsize-20: 3.73333vw;
+		--fontsize-22: 4.26666vw;
+		--fontsize-24: 4.53333vw;
+		--fontsize-26: 4.8vw;
+	}
+}
+
+/**
+ * keyframes
+ */
+@keyframes scrolly{
+	0% {
+		transform: translateY(-100%)
+	}
+	100% {
+		transform: translateY(0)
+	}
+}
+@keyframes scrollx{
+	0% {
+		transform: translateX(0)
+	}
+	100% {
+		transform: translateX(-100%)
+	}
+}
+
+
+/*-----------------------------------------------
+ * Bace
+-------------------------------------------------*/
+body{
+	-webkit-text-size-adjust: 100%;
+	background-color: #fff;
+	background-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/bg/noice.jpg);
+	background-repeat: repeat;
+	background-position: center;
+	color: rgb(var(--color-blue));
+	font-family: var(--main-font-family);
+	font-size: var(--main-font-size);
+	font-weight: normal;
+	letter-spacing: 0.05em;
+	line-height: 1.8;
+	word-wrap: break-word;
+}
+.pc{ display: block; }
+.sp{ display: none; }
+a{ color: #222; }
+a:hover{ text-decoration: none; }
+.ah { transition: opacity .3s ease; }
+.ah:hover { opacity: .7; }
+::selection{
+	background: rgb(var(--color-blue));
+	color: #fff;
+}
+::-moz-selection{
+	background: rgb(var(--color-blue));
+	color: #fff;
+}
+@media screen and (max-width:767px){
+	.sp{ display: block; }
+	.pc{ display: none; }
+	.ah:hover { opacity: 1; }
+}
+
+/**
+ * scroll bar
+ */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+	background: rgb(var(--color-blue));
+    background: linear-gradient(0deg, rgba(var(--color-blue),1) 0%, rgba(var(--color-green),1) 100%);
+}
+::-webkit-scrollbar-thumb {
+	background: rgb(var(--color-gold));
+    margin: 2px;
+    box-shadow: none;
+}
+
+/**
+ * font
+ */
+.font-cinzel {
+	font-family: 'Cinzel', serif;
+}
+
+
+/**
+ * Wrap
+ * 大枠のwrap指定
+ */
+/* fullWrap */
+#fullWrap {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	position: relative;
+	z-index: 1;
+}
+
+#canvasWrap{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 0;
+}
+#canvasBg{
+	background-color: #fff;
+	background-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/bg/noice.jpg);
+	background-repeat: repeat;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/**
+ * loading
+ */
+.s-loading {
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10000;
+}
+
+
+/*-----------------------------------------------
+ * Modal
+-------------------------------------------------*/
+
+/**
+ * modalBox
+ * 基盤のモーダル
+ */
+ .modalBox{
+    -webkit-overflow-scrolling: touch;
+	-webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+	background: rgb(var(--color-blue));
+    background: linear-gradient(0deg, rgba(var(--color-blue),.85) 0%, rgba(var(--color-green),.85) 100%);
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.modalBox.is-info {
+	background: rgba(255,255,255,.9);
+}
+.oneModal{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* oneModalIn */
+.oneModalIn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.oneModalIn__cont{
+    padding: 50px 0;
+}
+@media screen and (max-width:767px){
+    .oneModalIn{
+        min-width: 100%;
+    }
+    .oneModalIn__cont{
+        width: 100%;
+    }
+}
+
+/**
+ * closeBtn
+ */
+.closeBtnWrap {
+	width: min(8.33333vw,100px);
+	height: min(8.33333vw,100px);
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+@media screen and (max-width:767px){
+	.closeBtnWrap {
+		width: 13.33333vw;
+		height: 13.33333vw;
+	}
+}
+
+.closeBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	text-decoration: none;
+	z-index: 1;
+}
+
+/* line */
+.closeBtn__lineWrap {
+	width: min(6.66666vw,80px);
+	height: min(1.5vw,18px);
+	position: relative;
+	z-index: 1;
+}
+.closeBtn--line {
+	background-color: #fff;
+	display: block;
+	width: 100%;
+	height: min(0.33333vw,4px);
+	margin: auto;
+	position: absolute;
+}
+.closeBtn.is-info .closeBtn--line {
+	background-color: rgb(var(--color-blue));
+}
+.closeBtn--line:nth-child(1) {
+	top: 40%;
+	transform: rotate(20deg);
+}
+.closeBtn--line:nth-child(2) {
+	bottom: 40%;
+    transform: rotate(-20deg);
+}
+@media screen and (max-width:767px){
+	.closeBtn__lineWrap {
+		width: 10.66666vw;
+		height: 2.4vw;
+		margin-top: 3vw;
+	}
+	.closeBtn--line {
+		height: 0.6vw;
+	}
+}
+
+/* text */
+.closeBtn:after {
+	content: "CLOSE";
+	color: #fff;
+	display: block;
+	font-size: var(--fontsize-12);
+	margin-top: 8px;
+}
+.closeBtn.is-info:after {
+	color: rgb(var(--color-blue));
+}
+@media screen and (max-width:767px){
+	.closeBtn:after {
+		margin-top: 1vw;
+	}
+}
+
+/**
+ * iframe
+ */
+/* common */
+.commonIframe{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* youtube */
+.youtubeIframeWrap {
+    width: 70%;
+    max-width: 159.993vh;
+    position: relative;
+}
+@media screen and (max-width:767px){
+    .youtubeIframeWrap {
+        width: 100%;
+        max-width: 100%;
+        margin: 50px 0;
+    }
+}
+.youtubeIframeWrap:before{
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+    z-index: 0;
+}
+.youtubeIframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/**
+ * imgModal
+ */
+ .imgModal__imgWrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: min(2.5vw,30px) 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.imgModal__imgWrap img {
+    height: 100%;
+    object-fit: contain;
+    pointer-events: auto
+}
+
+@media screen and (max-width: 767px) {
+    .imgModal__imgWrap {
+        padding:24px
+    }
+
+    .imgModal__imgWrap img {
+        max-width: 100%;
+        height: auto
+    }
+}
+
+/**
+ * galleryImgModal
+ */
+ .galleryImgModal__cont {
+    position: relative;
+}
+.galleryImgModal__imgWrap {
+    width: 800px;
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+    transition: opacity .3s ease;
+}
+.galleryImgModal__imgWrap.is-active {
+    opacity: 1;
+}
+@media screen and (max-width:767px){
+    .galleryImgModal__imgWrap {
+        width: calc(100% - 40px);
+        margin: 0 auto;
+    }
+}
+
+/* img */
+.galleryImgModal__imgWrap img {
+    width: 100%;
+}
+
+/**
+ * galleryLists__pagerWrap
+ */
+.galleryLists__pagerWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+@media screen and (max-width:767px){
+    .galleryLists__pagerWrap {
+        width: 100%;
+        height: 40px;
+    }
+}
+
+/* pager */
+.galleryLists__pager {
+    width: 60px;
+    height: 60px;
+    pointer-events: auto;
+}
+@media screen and (max-width:767px){
+    .galleryLists__pager {
+        width: 40px;
+        height: 40px;
+        pointer-events: auto;
+    }
+}
+
+/* prev, next */
+.galleryLists__pager.is-prev {
+    margin-left: -60px;
+}
+.galleryLists__pager.is-next {
+    margin-right: -60px;
+}
+@media screen and (max-width:767px){
+    .galleryLists__pager.is-prev {
+        margin-left: 0;
+    }
+    .galleryLists__pager.is-next {
+        margin-right: 0;
+    }
+}
+
+/* a */
+.galleryLists__pager > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* arrow */
+.galleryLists__pager > a:before {
+    content: "";
+    background-color: rgb(var(--main-color-red));
+    display: block;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    width: 32px;
+    height: 58px;
+    transition: transform .3s ease;
+}
+@media screen and (max-width:767px){
+    .galleryLists__pager > a:before {
+        width: 18px;
+        height: 38px;
+    }
+}
+
+/* hover */
+.galleryLists__pager.is-prev > a:hover:before {
+    transform: translateX(-10px);
+}
+.galleryLists__pager.is-next > a:hover:before {
+    transform: translateX(10px);
+}
+@media screen and (max-width:767px){
+    .galleryLists__pager.is-prev > a:hover:before {
+        transform: translateX(0);
+    }
+    .galleryLists__pager.is-next > a:hover:before {
+        transform: translateX(0);
+    }
+}
+
+.galleryLists__pager.is-prev > a:before {
+    -webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/arrow_prev.svg);
+    mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/arrow_prev.svg);
+}
+.galleryLists__pager.is-next > a:before {
+    -webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/arrow_next.svg);
+    mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/arrow_next.svg);
+}
+
+.galleryImgModalContents {
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+.galleryImgModalContents.is-active {
+    opacity: 1;
+}
+
+
+/*-----------------------------------------------
+ * Header
+-------------------------------------------------*/
+.header {
+	width: 100%;
+	height: var(--header-height);
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+}
+
+/* bg */
+.header:before {
+	content: "";
+	background: rgb(var(--color-blue));
+	background: linear-gradient(0deg, rgba(var(--color-blue),1) 0%, rgba(var(--color-green),1) 100%);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity .3s ease;
+}
+.header.is-active:before {
+	opacity: .85;
+}
+
+/* logo */
+.header__logo {
+	width: min(13.33333vw,160px);
+	height: min(4.75vw,57px);
+	pointer-events: auto;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: min(2.5vw,30px);
+	bottom: 0;
+}
+.header__logo img {
+	width: 100%;
+}
+@media screen and (max-width:767px){
+	.header__logo {
+		width: 22.53333vw;
+		height: 8vw;
+		left: 3vw;
+	}
+}
+
+/* inner */
+.header__inner {
+	-webkit-overflow-scrolling: touch;
+	-webkit-backdrop-filter: blur(7px);
+	backdrop-filter: blur(7px);
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	z-index: 1;
+	transition: opacity .5s ease-in-out;
+}
+.header.is-active .header__inner {
+	opacity: 1;
+	pointer-events: auto;
+}
+@media screen and (max-width:767px){
+	.header__inner {
+		overflow-x: hidden;
+	}
+}
+
+/**
+ * headerNavWrap
+ */
+.headerNavWrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: var(--common-in-width);
+	max-width: var(--common-in-maxwidth);
+	margin: 0 auto;
+	min-height: 100%;
+	position: relative;
+	z-index: 1;
+}
+@media screen and (max-width:767px){
+	.headerNavWrap {
+		flex-direction: column;
+		justify-content: center;
+		margin: calc(60 / 750 * 100vw) auto;
+	}
+}
+
+/**
+ * logo
+ */
+.headerNav__logo {
+	width: 30%;
+	padding-right: 6%;
+}
+.headerNav__logo > a {
+	display: block;
+	width: 100%;
+	max-width: 272px;
+}
+.headerNav__logo img {
+	width: 100%;
+}
+@media screen and (max-width:767px){
+	.headerNav__logo {
+		width: 48vw;
+		margin-bottom: 10.66666vw;
+		padding-right: 0;
+	}
+	.headerNav__logo > a {
+		max-width: 100%;
+	}
+}
+
+/**
+ * headerNav
+ */
+ .headerNav {
+	display: flex;
+	width: 70%;
+	position: relative;
+}
+@media screen and (max-width:767px){
+	.headerNav {
+		display: block;
+		width: 100%;
+	}
+}
+
+/**
+ * headerNavLists
+ */
+.headerNavLists {
+	display: grid;
+	gap:min(2.5vw, 36px) 0;
+	width: calc(100% / 3 * 2);
+	justify-content: space-between;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(6,auto);
+	grid-auto-flow: column;
+	margin-top: min(6.66666vw,80px);
+	margin-bottom: min(6.66666vw,80px);
+}
+.headerNavLists:last-child {
+	width:calc(100% / 3);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+/* .headerNavLists__item {
+	width:50%;
+} */
+.headerNavLists__item.is-share {
+	margin-top: auto;
+}
+@media screen and (max-width:767px){
+	.headerNavLists {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: inherit;
+		justify-content: flex-start;
+		gap:6.5vw 0;
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 0 0;
+	}
+	.headerNavLists:last-child {
+		width:100%;
+	}
+	.headerNavLists:not(:first-of-type) {
+		margin-top: 6.5vw;
+	}
+	.headerNavLists__item {
+		width: 50%;
+	}
+	.headerNavLists__item.is-share {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+}
+
+/* link */
+.headerNavLists__link {
+	color: #fff;
+	display: block;
+	text-decoration: none;
+}
+
+/* inner */
+.headerNavLists__inner {
+	display: flex;
+	letter-spacing: 0.01em;
+	transition: color .3s ease;
+}
+.headerNavLists__inner.is-en {
+	font-size: min(2vw, 32px);
+	line-height: 1;
+	white-space: nowrap;
+}
+.headerNavLists__inner.is-ja {
+	color: rgb(var(--color-gold));
+	font-size: min(1.08333vw, 16px);
+	margin-top: 6px;
+	line-height: 1;
+	white-space: nowrap;
+}
+.headerNavLists__link:is(:hover, .is-active) .headerNavLists__inner {
+	color: rgb(var(--color-blue));
+}
+@media screen and (max-width:767px){
+	.headerNavLists__inner.is-en {
+		font-size: 4.5vw;
+	}
+	.headerNavLists__inner.is-ja {
+		font-size: 2.66666vw;
+	}
+}
+
+/* bg */
+.headerNavLists__l {
+	position: relative;
+}
+.headerNavLists__l:before {
+	content: "";
+	background-position: bottom;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 10%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 90%,rgba(255,255,255,0) 90%,rgba(255,255,255,0) 100%);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: -0.06em;
+	left: 0;
+	z-index: 0;
+	transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .3s ease;
+}
+.headerNavLists__link:is(:hover, .is-active) .headerNavLists__l:before {
+	transform-origin: left top;
+	transform: scale(1, 1);
+}
+@media screen and (max-width:767px){
+	.headerNavLists__l:before {
+		top: -1px;
+	}
+}
+
+.headerNavLists__l > span {
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+}
+.headerNavLists__l > span.is-ja {
+	font-weight: 700;
+	padding-bottom: min(.3vw,5px);
+}
+.headerNavLists__l > span.is-twitter:after {
+	content: "";
+    background-color: #fff;
+    display: block;
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+    mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+	width: min(1.83333vw,28px);
+    height: min(1.58333vw,25px);
+	margin-top: -4px;
+	margin-left: 8px;
+	transition: background-color .3s ease;
+}
+@media screen and (max-width:767px){
+	.headerNavLists__l > span.is-twitter:after {
+		width: 3.73333vw;
+		height: 3.33333vw;
+	}
+}
+.headerNavLists__link:is(:hover, .is-active) .headerNavLists__l > span.is-twitter:after {
+	background-color: rgb(var(--color-blue));
+}
+
+/**
+ * shareDl
+ */
+.header__shareDl {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+@media screen and (max-width:767px){
+	.header__shareDl {
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+/* dt, dd */
+.header__shareDl--dt {
+	color: #fff;
+	font-size: var(--fontsize-14);
+	margin-bottom: min(1.16666vw,14px);
+	text-align: center;
+}
+@media screen and (max-width:767px){
+	.header__shareDl--dt {
+		font-size: 3.73333vw;
+		margin-bottom: 0;
+	}
+}
+
+/* shareLists */
+.header__shareLists {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+.header__shareLists__item {
+	width: min(2.08333vw,25px);
+	height: min(2.08333vw,25px);
+}
+.header__shareLists__item:not(:first-child) {
+	margin-left: min(2.5vw,30px);
+}
+@media screen and (max-width:767px){
+	.header__shareLists__item {
+		width: 12.8vw;
+		height: 12.8vw;
+	}
+	.header__shareLists__item:not(:first-child) {
+		margin-left: 0;
+	}
+}
+
+/* a */
+.header__shareLists__item > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+.header__shareLists__item > a:before {
+	content: "";
+	background-color: #fff;
+	display: block;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+	width: min(2.08333vw,25px);
+	height: min(2.08333vw,25px);
+}
+@media screen and (max-width:767px){
+	.header__shareLists__item > a:before {
+		width: 6.13333vw;
+		height: 6.13333vw;
+	}
+}
+
+/* 各SNS */
+.header__shareLists__item.is-twitter > a:before {
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+}
+.header__shareLists__item.is-facebook > a:before {
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fb.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fb.svg);
+}
+.header__shareLists__item.is-line > a:before {
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_line.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_line.svg);
+}
+
+/**
+ * headerSide
+ */
+.headerSide {
+	height: 100%;
+	overflow: hidden;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	z-index: 2;
+	opacity: 0;
+	transition: opacity .3s ease;
+}
+.header.is-active .headerSide {
+	opacity: 1;
+}
+.headerSide.is-left {
+	left: 0;
+}
+.headerSide.is-right {
+	right: 0;
+	transform: rotate(180deg);
+}
+@media screen and (max-width:767px){
+	.headerSide {
+		display: flex;
+		width: 100%;
+		height: auto;
+	}
+	.headerSide.is-left {
+		top: auto;
+	}
+	.headerSide.is-right {
+		bottom: auto;
+	}
+}
+
+/* inner */
+.headerSide__inner {
+	color: #1ea98b;
+	font-size: min(6vw,120px);
+	line-height: 1;
+	-webkit-writing-mode: vertical-rl;
+	writing-mode: vertical-rl;
+	white-space: nowrap;
+	margin-left: -.2em;
+}
+.header.is-active .headerSide__inner {
+	animation: scrolly 80s linear infinite;
+}
+.headerSide__inner:before {
+	content: "Frieren : Beyond Journey's End";
+}
+@media screen and (max-width:767px){
+	.headerSide__inner {
+		font-size: 13.33333vw;
+		-webkit-writing-mode: unset;
+		writing-mode: unset;
+		margin-bottom: -.2em;
+		margin-left: 0;
+	}
+	.header.is-active .headerSide__inner {
+		animation: scrollx 80s linear infinite;
+	}
+}
+
+/**
+ * navBtn
+ */
+.header__navBtnWrap {
+	width: min(8.33333vw,100px);
+	height:100%;
+	pointer-events: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+@media screen and (max-width:767px){
+	.header__navBtnWrap {
+		width: 13.33333vw;
+	}
+}
+
+.header__navBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	text-decoration: none;
+	z-index: 1;
+}
+.header__navBtn:before {
+	content: "";
+	background: rgb(var(--color-blue));
+	background: linear-gradient(0deg, rgba(var(--color-blue),1) 0%, rgba(var(--color-green),1) 100%);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 0;
+	transition: opacity .4s ease;
+}
+.header__navBtn.is-active:before {
+	opacity: 0;
+}
+
+/* line */
+.header__navBtn__lineWrap {
+	width: min(6.66666vw,80px);
+	height: min(1.5vw,18px);
+	margin-left: auto;
+	position: relative;
+	z-index: 1;
+}
+.header__navBtn--line {
+	background-color: #fff;
+	display: block;
+	width: 100%;
+	height: min(0.33333vw,4px);
+	margin: auto;
+	position: absolute;
+	transition: all .3s ease;
+}
+@media screen and (max-width:767px){
+	.header__navBtn__lineWrap {
+		width: 10.66666vw;
+		height: 2.4vw;
+	}
+	.header__navBtn--line {
+		height: 0.6vw;
+	}
+}
+
+.header__navBtn--line:nth-child(1) {
+	top: 0;
+}
+.header__navBtn--line:nth-child(2) {
+	bottom: 0;
+}
+.header__navBtn.is-active .header__navBtn--line:nth-child(1) {
+	top:40%;
+	transform: rotate(20deg);
+}
+.header__navBtn.is-active .header__navBtn--line:nth-child(2) {
+	bottom:40%;
+	transform: rotate(-20deg);
+}
+
+/* text */
+.header__navBtn:after {
+	content: "MENU";
+	color: #fff;
+	font-size: min(1vw,12px);
+	line-height: 1;
+	position: absolute;
+	bottom: 18%;
+	left: 20%;
+}
+.header__navBtn.is-active:after {
+	content: "CLOSE";
+}
+@media screen and (max-width:767px){
+	.header__navBtn:after {
+		font-size: 1.6vw;
+	}
+}
+
+
+/*-----------------------------------------------
+ * Footer
+-------------------------------------------------*/
+.footer {
+	background: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/footer/footer_visual.png) no-repeat center bottom / 100%;
+	margin-top: auto;
+	padding-top: min(16.66666vw,200px);
+	padding-bottom: 36vw;
+}
+@media screen and (max-width:767px){
+	.footer {
+		background-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/footer/footer_visual_sp.png);
+		padding-top: 24vw;
+		padding-bottom: 74.66666vw;
+	}
+}
+
+/* inner */
+.footer__inner {
+	position: relative;
+	z-index: 1;
+}
+
+/**
+ * footerBnrListsWrap
+ */
+.footerBnrListsWrap {
+	width: var(--common-in-width);
+	max-width: var(--common-in-maxwidth);
+	margin: 0 auto min(6.66666vw,80px);
+}
+.footerBnrLists {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: min(1.66666vw,20px);
+}
+@media screen and (max-width:767px){
+	.footerBnrListsWrap {
+		margin: 0 auto 10.66666vw;
+	}
+	.footerBnrLists {
+		gap: 4vw;
+	}
+}
+
+/* item */
+.footerBnrLists__item {
+	width: min(20.83333vw,250px);
+}
+.footerBnrLists__item img {
+	width: 100%;
+}
+@media screen and (max-width:767px){
+	.footerBnrLists__item {
+		width: calc((100% - 4vw) / 2);
+	}
+}
+
+/**
+ * footer__shareDl
+ */
+.footer__shareDl {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* dt, dd */
+.footer__shareDl--dt {
+	font-size: var(--fontsize-18);
+	text-align: center;
+}
+
+/* shareLists */
+.footer__shareLists {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+.footer__shareLists__item {
+	width: min(5vw,60px);
+	height: min(5vw,60px);
+}
+.footer__shareLists__item:not(:first-child) {
+	margin-left: min(.4vw,10px);
+}
+@media screen and (max-width:767px){
+	.footer__shareLists__item {
+		width: 12.8vw;
+		height: 12.8vw;
+	}
+	.footer__shareLists__item:not(:first-child) {
+		margin-left: 0;
+	}
+}
+
+/* a */
+.footer__shareLists__item > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+.footer__shareLists__item > a:before {
+	content: "";
+	background-color: rgb(var(--color-blue));
+	display: block;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+	width: min(2.33333vw,28px);
+	height: min(2.33333vw,28px);
+}
+@media screen and (max-width:767px){
+	.footer__shareLists__item > a:before {
+		width: 6.13333vw;
+		height: 6.13333vw;
+	}
+}
+
+/* 各SNS */
+.footer__shareLists__item.is-twitter > a:before {
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+}
+.footer__shareLists__item.is-facebook > a:before {
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fb.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_fb.svg);
+}
+.footer__shareLists__item.is-line > a:before {
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_line.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_line.svg);
+}
+
+/**
+ * copyright
+ */
+.footer__copyright {
+	display: block;
+	font-size: var(--fontsize-12);
+	letter-spacing: -0.01em;
+	margin-top: min(5vw,60px);
+	text-align: center;
+}
+@media screen and (max-width:767px){
+	.footer__copyright {
+		margin-top: 9.33333vw;
+	}
+}
+
+/**
+ * pagetop
+ */
+.pagetop {
+	position: absolute;
+	bottom: 0;
+	right: min(4.16666vw,50px);
+}
+.pagetop > a {
+	color: rgb(var(--color-blue));
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: min(4.16666vw,50px);
+	position: relative;
+	text-decoration: none;
+}
+@media screen and (max-width:767px){
+	.pagetop {
+		margin-top: 9.33333vw;
+		position: relative;
+		bottom: auto;
+		right: auto;
+	}
+}
+
+/* arrow */
+.pagetop > a:before {
+	content: "";
+	background-color: rgb(var(--color-blue));
+	display: block;
+	-webkit-mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_arrow_top.svg) no-repeat 0 0 / 100%;
+	mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_arrow_top.svg) no-repeat 0 0 / 100%;
+	width: min(8.33333vw,100px);
+	height: min(3.33333vw,40px);
+	transition: transform .4s ease;
+}
+.pagetop > a:hover:before {
+	transform: translateY(-30%);
+}
+@media screen and (max-width:767px){
+	.pagetop > a:before {
+		width: 22.66666vw;
+		height: 9.33333vw;
+	}
+}
+
+/* text */
+.pagetop__text {
+	font-size: var(--fontsize-14);
+	margin-top: 6px;
+	text-align: center;
+}
+@media screen and (max-width:767px){
+	.pagetop__text {
+		margin-top: 0;
+	}
+}
+
+
+/*-----------------------------------------------
+ * Parts
+-------------------------------------------------*/
+/**
+ * font-size
+ * %：親に依存
+ */
+.fontsize-80per {
+	font-size: 80%;
+}
+.fontsize-60per {
+	font-size: 60%;
+}
+
+/**
+ * linkA
+ */
+.linkA {
+	color: rgb(var(--color-blue));
+	display: block;
+	font-size: var(--fontsize-18);
+	line-height: 1;
+	padding: min(2.5vw,30px) 0 min(2.5vw,30px) min(2.16666vw,26px);
+	position: relative;
+	text-decoration: none;
+}
+.linkA:before {
+	content: "";
+	background-color: rgb(var(--color-blue));
+	display: block;
+	width: 5px;
+	height: 5px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	transform: rotate(45deg);
+	transition: opacity .4s var(--easing-outquart);
+}
+.linkA:hover:before {
+	opacity: 0;
+}
+.linkA:after {
+	content: "";
+	background-color: rgb(var(--color-blue));
+	display: block;
+	width: 0;
+	height: 1px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	transition: width .4s var(--easing-outquart);
+}
+.linkA:hover:after {
+	width: 105%;
+}
+@media screen and (max-width:767px){
+	.linkA {
+		font-size: 3.46666vw;
+		padding: 3.5vw 0 3.5vw 4vw;
+	}
+	.linkA:before {
+		width: 4px;
+		height: 4px;
+	}
+}
+
+/* backto */
+.backTo {
+	display: flex;
+	justify-content: center;
+	margin-top: min(8.33333vw, 100px);
+}
+@media screen and (max-width:767px){
+	.backTo {
+		margin-top: 13vw;
+	}
+}
+
+/**
+ * contTitle1
+ */
+.contTitle1 {
+	display: inline-flex;
+	flex-direction: column;
+	margin-top: -4px;
+	position: relative;
+}
+.contTitle1:before {
+	content: "";
+	background: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/deco/deco_title_b.png) no-repeat 0 0 / 100%;
+	width: min(25.08333vw,301px);
+	height: min(22.41666vw,269px);
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: -145px;
+	bottom: min(3.33333vw,40px);
+	z-index: 0;
+}
+@media screen and (max-width:1200px){
+	.contTitle1:before {
+		left: -12.5vw;
+	}
+}
+@media screen and (max-width:767px){
+	.contTitle1:before {
+		width: 40.4vw;
+		height: 36.13333vw;
+		left: -20vw;
+		bottom: 5.5vw;
+	}
+}
+
+/* en */
+.contTitle1__en {
+	display: inline-block;
+	background: rgb(var(--color-blue));
+	background: linear-gradient(0deg, rgba(var(--color-blue),1) 0%, rgba(var(--color-green),1) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: min(5vw,60px);
+	letter-spacing: 0.05em;
+	line-height: 1;
+	position: relative;
+	z-index: 1;
+}
+@media screen and (max-width:767px){
+	.contTitle1__en {
+		font-size: 8vw;
+	}
+}
+
+/* ja */
+.contTitle1__ja {
+	display: inline-block;
+	color: rgb(var(--color-blue));
+	font-size: min(2vw,24px);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	line-height: 1;
+	margin-top: min(0.66666vw,8px);
+	position: relative;
+	z-index: 1;
+}
+@media screen and (max-width:767px){
+	.contTitle1__ja {
+		font-size: 3.73333vw;
+		margin-top: 1vw;
+	}
+}
+
+/**
+ * contTitle2
+ */
+.contTitle2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.contTitle2:after {
+	content: "";
+	background-color: rgb(var(--color-gold));
+	-webkit-mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/deco/deco_title_u.svg) no-repeat 0 0 / contain;
+	mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/deco/deco_title_u.svg) no-repeat 0 0 / contain;
+	display: block;
+	width: min(33.33333vw,400px);
+	height: min(1.91666vw,23px);
+	margin-top: min(1.66666vw,20px);
+}
+@media screen and (max-width:767px){
+	.contTitle2:after {
+		width: 53.33333vw;
+		height: 3.2vw;
+		margin-top: 4vw;
+	}
+}
+
+/* en */
+.contTitle2__en {
+	display: block;
+	background: rgb(var(--color-blue));
+	background: linear-gradient(0deg, rgba(var(--color-blue),1) 0%, rgba(var(--color-green),1) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: min(5vw,60px);
+	letter-spacing: 0.045em;
+	line-height: 1;
+	text-align: center;
+}
+.contTitle2.is-white .contTitle2__en {
+	background: none;
+	-webkit-background-clip: unset;
+	background-clip: unset;
+	-webkit-text-fill-color: unset;
+	color: #fff;
+}
+@media screen and (max-width:767px){
+	.contTitle2__en {
+		font-size: 8vw;
+	}
+}
+
+/* ja */
+.contTitle2__ja {
+	display: block;
+	color: rgb(var(--color-blue));
+	font-size: min(2vw,24px);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	line-height: 1;
+	margin-top: min(0.66666vw,8px);
+	position: relative;
+	z-index: 1;
+	text-align: center;
+}
+.contTitle2.is-white .contTitle2__ja {
+	color: #fff;
+}
+@media screen and (max-width:767px){
+	.contTitle2__ja {
+		font-size: 3.73333vw;
+		margin-top: 1vw;
+	}
+}
+
+/* add */
+.contTitle2--add {
+	color: rgb(var(--color-green));
+	font-size: var(--fontsize-18);
+	line-height: 1;
+	position: absolute;
+	top: -82%;
+}
+.contTitle2--add:before {
+	content: "";
+	background-color: rgb(var(--color-green));
+	width: 1px;
+	height: min(4.16666vw,50px);
+	margin: auto;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: min(3.16666vw,38px);
+}
+@media screen and (max-width:767px){
+	.contTitle2--add:before {
+		height: 6vw;
+		top: 6vw;
+	}
+}
+
+/**
+ * swiper pager
+ */
+.c-swiperPagerWrap {
+	display: none;
+	width: min(15.83333vw,300px);
+	height: calc(100% - min(4.16666vw,50px));
+	position: absolute;
+	top: 0;
+	z-index: 2;
+}
+.c-swiperPagerWrap.is-prev {
+	left: 0;
+}
+.c-swiperPagerWrap.is-next {
+	right: 0;
+}
+@media screen and (max-width:767px){
+	.c-swiperPagerWrap {
+		width: 10vw;
+		height: 100%;
+	}
+}
+
+.c-swiperPager {
+	color: rgb(var(--color-blue));
+	display: flex;
+	align-items: center;
+	width: 60%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	text-decoration: none;
+}
+.c-swiperPagerWrap.is-prev .c-swiperPager {
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.64) 70%, rgba(255,255,255,0) 100%);
+	left: 0;
+}
+.c-swiperPagerWrap.is-next .c-swiperPager {
+	background: linear-gradient(-90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.64) 70%, rgba(255,255,255,0) 100%);
+	right: 0;
+}
+@media screen and (max-width:767px){
+	.c-swiperPager {
+		width: 100%;
+	}
+}
+
+/* inner */
+.c-swiperPager__inner {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	transition: width .6s var(--easing-outquart);
+}
+.c-swiperPager:hover .c-swiperPager__inner {
+	width: 80%;
+}
+.c-swiperPagerWrap.is-prev .c-swiperPager__inner {
+	left: 0;
+}
+.c-swiperPagerWrap.is-next .c-swiperPager__inner {
+	right: 0;
+}
+@media screen and (max-width:767px){
+	.c-swiperPager__inner {
+		width: 10vw;
+	}
+	.c-swiperPager:hover .c-swiperPager__inner {
+		width: 100%;
+	}
+}
+
+/* line */
+.c-swiperPager__inner:after {
+	content: "";
+	background-color: rgb(var(--color-blue));
+	display: block;
+	width: 100%;
+	height: 1px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+.c-swiperPagerWrap.is-prev .c-swiperPager__inner:after {
+	left: 0;
+}
+.c-swiperPagerWrap.is-next .c-swiperPager__inner:after {
+	right: 0;
+}
+
+/* text */
+.c-swiperPager__text {
+	font-size: var(--fontsize-18);
+	line-height: 1;
+	margin-top: -0.3em;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.c-swiperPagerWrap.is-prev .c-swiperPager__text {
+	right: 0;
+}
+@media screen and (max-width:767px){
+	.c-swiperPager__text {
+		font-size: var(--fontsize-12);
+		bottom: 15vw;
+	}
+	.c-swiperPagerWrap.is-prev .c-swiperPager__text {
+		left: 0;
+		right: auto;
+	}
+	.c-swiperPagerWrap.is-next .c-swiperPager__text {
+		left: auto;
+		right: 0;
+	}
+}
+
+/**
+ * c-swiperNav
+ */
+.c-swiperNavWrap {
+	display: none;
+	width: 100%;
+	height: min(4.16666vw,50px);
+}
+.c-swiperNav {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	gap: 0 6px;
+	width: 100%;
+	height: 100%;
+}
+@media screen and (max-width:767px){
+	.c-swiperNav {
+		height: 8vw;
+		gap: 0 4px;
+	}
+}
+
+/* bullet */
+.c-swiperNav .swiper-pagination-bullet {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	width: min(2.5vw,40px);
+	height: min(2.5vw,40px);
+}
+.c-swiperNav .swiper-pagination-bullet:before {
+	content: "";
+	border: 1px solid rgb(var(--color-blue));
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	height: 4px;
+	transition: background-color .4s ease;
+}
+.c-swiperNav .swiper-pagination-bullet-active.swiper-pagination-bullet:before {
+	background-color: rgb(var(--color-blue));
+}
+@media screen and (max-width:767px){
+	.c-swiperNav .swiper-pagination-bullet {
+		width: 6.66666vw;
+		height: 6.66666vw;
+	}
+}
+
+/**
+ * 見出し等使えるパーツ類
+ */
+/* text bg */
+.text-bg-blue {
+	background-position: bottom;
+	background: linear-gradient(to bottom, rgba(var(--color-blue),0) 0%,rgba(var(--color-blue),0) 10%,rgba(var(--color-blue),1) 10%,rgba(var(--color-blue),1) 90%,rgba(var(--color-blue),0) 90%,rgba(var(--color-blue),0) 100%);
+	color: #fff;
+}
+/* text bg */
+.text-bg-white {
+	background-position: bottom;
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 10%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 90%,rgba(255,255,255,0) 90%,rgba(255,255,255,0) 100%);
+	color: rgb(var(--color-blue));
+}
+
+/* indent */
+.indent-1 {
+	display: block;
+	padding-left:1em;
+	text-indent:-1em;
+}
+
+/* 見出しタイトル（中央） */
+.subcontTitle {
+	font-size: var(--fontsize-20);
+	font-weight: 700;
+	line-height: 1.6;
+	text-align: center;
+	position: relative;
+}
+.subcontTitle:before {
+	content: "";
+	background-color: rgb(var(--color-gold));
+	width: min(5vw,60px);
+	height: 2px;
+	margin: auto;
+	position: absolute;
+	bottom: -1em;
+	right: 0;
+	left: 0;
+}
+@media screen and (max-width:767px){
+	.subcontTitle:before {
+		width: 8vw;
+	}
+}
+
+/**
+ * blankLinkLists
+ */
+.blankLinkLists {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: min(1.66666vw,20px);
+}
+.blankLinkLists__item {
+	width: calc(100% / 3);
+}
+@media screen and (max-width:767px){
+	.blankLinkLists {
+		gap: 2vw;
+	}
+	.blankLinkLists__item {
+		width: calc((100% - 2vw) / 2);
+	}
+}
+
+/* a */
+.blankLinkLists__item > a {
+	border: 1px solid rgb(var(--color-blue));
+	color: rgb(var(--color-blue));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	padding: min(0.8333vw,10px);
+	position: relative;
+	transition: color .4s ease;
+}
+.blankLinkLists__item > a:hover {
+	color: #fff;
+}
+@media screen and (max-width:767px){
+	.blankLinkLists__item > a {
+		min-height: 100%;
+		padding: 2vw 0;
+	}
+}
+
+/* bg */
+.blankLinkLists__item > a:before {
+	content: "";
+	background: rgb(var(--color-blue));
+    background: linear-gradient(0deg, rgba(var(--color-blue),1) 0%, rgba(var(--color-green),1) 100%);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	transform: scale(1,0);
+	transform-origin: top;
+	transition: transform .4s var(--easing-outquart);
+	z-index: 0
+}
+.blankLinkLists__item > a:hover:before {
+	transform-origin: bottom;
+	transform: scale(1,1)
+}
+
+/* text */
+.blankLinkLists__text {
+	display: inline-flex;
+	align-items: center;
+	font-size: var(--fontsize-16);
+	font-weight: 700;
+	line-height: 1.4;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+}
+.blankLinkLists__text:after {
+	content: "";
+	background-color: rgb(var(--color-gold));
+	-webkit-mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_blank.svg) no-repeat center / contain;
+	mask: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_blank.svg) no-repeat center / contain;
+	display: flex;
+	width: min(1.16666vw, 14px);
+	height: min(1.16666vw, 14px);
+	margin-left: 6px;
+}
+.blankLinkLists__text.is-twitter:after {
+	-webkit-mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+	mask-image: url(https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/common/icon/icon_tw.svg);
+	width: min(15vw, 18px);
+	height: min(15vw, 18px);
+}
+@media screen and (max-width:767px){
+	.blankLinkLists__text {
+		font-size: var(--fontsize-14);
+	}
+	.blankLinkLists__text:after {
+		width: 3vw;
+		height: 3vw;
+		margin-left: 1.5vw;
+	}
+	.blankLinkLists__text.is-twitter:after {
+		width: 4vw;
+		height: 4vw;
+	}
+}
+
+
+/*-----------------------------------------------
+ * Subpage
+-------------------------------------------------*/
+.subArticle {
+	padding-top: min(16.66666vw,200px);
+}
+@media screen and (max-width:767px){
+	.subArticle {
+		padding-top: 29.33333vw;
+	}
+}
+
+/**
+ * wp-pagenavi
+ */
+.wp-pagenavi {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: min(8.33333vw,100px);
+	margin-top: min(5vw,60px);
+    overflow: hidden;
+	padding: 0 min(8.33333vw,100px);
+	position: relative;
+	font-family: 'Cinzel', serif;
+}
+@media screen and (max-width:767px){
+	.wp-pagenavi {
+		height: 15vw;
+		padding: 0 15vw;
+	}
+}
+
+/* page, current */
+.wp-pagenavi .page,
+.wp-pagenavi .current {
+	color: rgb(var(--color-green));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--fontsize-18);
+	width: min(4.16666vw, 50px);
+	height: min(4.16666vw, 50px);
+	position: relative;
+	text-decoration: none;
+	transition: background-color .3s ease,
+				color .3s ease;
+}
+@media screen and (max-width:767px){
+	.wp-pagenavi .page,
+	.wp-pagenavi .current {
+		display: none;
+	}
+}
+
+.wp-pagenavi .page:hover {
+	background-color: rgb(var(--color-green));
+	color: #fff;
+}
+.wp-pagenavi .current:before {
+	content: "";
+	background-color: rgb(var(--color-green));
+	width: 50%;
+	height: 1px;
+	margin: auto;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+/* next ,prev */
+.wp-pagenavi .nextpostslink,
+.wp-pagenavi .previouspostslink {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: rgb(var(--color-green));
+	width: min(8.33333vw,100px);
+	height: min(8.33333vw,100px);
+	font-size: var(--fontsize-18);
+	position: absolute;
+	top: 0;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.wp-pagenavi .nextpostslink {
+	right: 0;
+}
+.wp-pagenavi .previouspostslink {
+	left: 0;
+	text-align: right;
+}
+@media screen and (max-width:767px){
+	.wp-pagenavi .nextpostslink,
+	.wp-pagenavi .previouspostslink {
+		width: 15vw;
+		height: 15vw;
+	}
+}
+
+/* line */
+.wp-pagenavi .nextpostslink:before,
+.wp-pagenavi .previouspostslink:before {
+    content: "";
+    background-color: rgb(var(--color-blue));
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: auto;
+    position: absolute;
+    top: 0.5em;
+    bottom: 0;
+}
+.wp-pagenavi .nextpostslink:before {
+	right: 0;
+}
+.wp-pagenavi .previouspostslink:before {
+	left: 0;
+}
+
+/* hover */
+.wp-pagenavi .nextpostslink,
+.wp-pagenavi .previouspostslink {
+	transition: all .4s var(--easing-outquart);
+}
+.wp-pagenavi .nextpostslink:hover {
+	padding-left: 1em;
+}
+.wp-pagenavi .previouspostslink:hover {
+	padding-right: 1em;
+}
+.wp-pagenavi .nextpostslink:before,
+.wp-pagenavi .previouspostslink:before {
+	transition: width .4s var(--easing-outquart);
+}
+.wp-pagenavi .nextpostslink:hover:before,
+.wp-pagenavi .previouspostslink:hover:before {
+	width: 80%;
+}
